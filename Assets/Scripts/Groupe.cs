@@ -54,8 +54,11 @@ public class Groupe : MonoBehaviour {
     public  Material mouseOverMaterial;
     private InputControler _inputControler;
 
-
+    public float speed = 1.0f;
     public static Groupe selectedObject = null;
+
+
+    // public static Groupe selectedObject = null;
 	void Start () {
         _inputControler = GameManager.gm.GetComponent<InputControler>();
 	}
@@ -70,6 +73,10 @@ public class Groupe : MonoBehaviour {
         // update center position
         Vector3 barycenter = GetBarycenter(AllAgents);
         this.transform.position = barycenter;
+        Vector3 moveDir = new Vector3(-Input.GetAxis("Horizontal"), 0,-Input.GetAxis("Vertical"));
+		moveDir = transform.TransformDirection(moveDir);
+		moveDir *= speed;
+		g_GoalPos+=(moveDir);        
 
 	}
 
