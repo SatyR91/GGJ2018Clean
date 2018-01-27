@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1470453657732694}
+  m_IsPrefabParent: 1
+--- !u!1 &1470453657732694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4743491452889852}
+  - component: {fileID: 114131273375276346}
+  - component: {fileID: 135786036767594316}
+  m_Layer: 10
+  m_Name: Groupe
+  m_TagString: group
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4743491452889852
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470453657732694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114131273375276346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470453657732694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7658904cb2bb33e4ca30bba4fb2e73b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllAgents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  g_FloakingPrefab: {fileID: 1925375164009324, guid: 8905464d398532c48b1e3cb6688bac0b,
+    type: 2}
+  g_GroupPrefab: {fileID: 1470453657732694}
+  g_Camera: {fileID: 0}
+  g_GoalPos: {x: -85.3, y: 18.2, z: -8.027336}
+  g_CameraPos: {x: 0, y: 1, z: -25}
+  g_SpawnLocation: {fileID: 0}
+  g_NumFloakAgents: 10
+  g_ReachGoal: 1
+  g_Speed: 6.8
+  g_RulesFrequency: 13
+  g_GroupeRadius: 13
+  g_AlignementWeight: 1
+  g_CohesionWeight: 1
+  g_SeparationWeight: 3
+  g_GoalWeight: 1
+  g_SeparationDistance: 21.1
+  g_CohesionDistance: 18.2
+  g_InitScene: 0
+  isSelected: 0
+  distanceForNewGroup: 1.5
+  minMergeDistance: 0
+  selectedMaterial: {fileID: 2100000, guid: ff28883586b6922489c22525a2b2bcbf, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 4137f6f772df3a9439d0a707b58beae4, type: 2}
+  mouseOverMaterial: {fileID: 2100000, guid: f8618fd687b17a546aeb96840caf44e9, type: 2}
+--- !u!135 &135786036767594316
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470453657732694}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 29.25
+  m_Center: {x: 0, y: -28.3, z: 0}

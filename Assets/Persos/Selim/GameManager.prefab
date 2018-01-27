@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1730298762802406}
+  m_IsPrefabParent: 1
+--- !u!1 &1730298762802406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4217050366408264}
+  - component: {fileID: 114630732245710708}
+  - component: {fileID: 114122468286257640}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4217050366408264
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730298762802406}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00000034272668, w: 1}
+  m_LocalPosition: {x: -0.00000021606684, y: -0.00000008940697, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114122468286257640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730298762802406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281907febd994ba4fab52f2abab626ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groupePrefab: {fileID: 1428919811679158, guid: ccbd32b7c7b24c545a1c8c8bf347fec9,
+    type: 2}
+--- !u!114 &114630732245710708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730298762802406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09eeb39a493169428d470cc37644a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistanceToCut: 0.1
+  horizontalPlaneLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  groupLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  objectTag: pikmin
+  rightObjects: []
+  leftObjects: []
+  timeForDoubleClick: 0.25
+  _firstLinePoint: {x: 0, y: 0, z: 0}
+  _secondLinePoint: {x: 0, y: 0, z: 0}
