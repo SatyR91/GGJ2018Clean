@@ -21,6 +21,8 @@ public class Unit : MonoBehaviour {
 	public Groupe mGroupe;
 	public Material LearnMaterial;	
 
+	public GameObject lightBulb;
+
 	Animator m_Animator;
 
 	// -------- EVENTS
@@ -41,7 +43,7 @@ public class Unit : MonoBehaviour {
 		mState = new MovingState();
 		mGenes = new Dictionary<SKILLS, float>();
         randGenes();
-		mGroupe = GetComponentInParent<Groupe> ();
+		mGroupe = GetComponentInParent<Floak> ().groupe;
 		m_Animator = GetComponentInParent<Animator> ();
 		State = STATE.MOVING;
 	}
@@ -76,6 +78,9 @@ public class Unit : MonoBehaviour {
 					State = STATE.MOVING;
 					m_Animator.SetBool("swimming", true);
 					m_Animator.SetBool("drowning", false);
+					if(lightBulb != null){
+						lightBulb.SetActive(true);
+					}
 					
 				}
 				else {
@@ -163,6 +168,10 @@ public class Unit : MonoBehaviour {
 					m_Animator.SetBool("swimming", true);
 					m_Animator.SetBool("drowning", false);
 					State = STATE.SWIMMING;
+
+					if(lightBulb != null){
+						lightBulb.SetActive(true);
+					}
 				}
 				else {
 					m_Animator.SetBool("moving", true);

@@ -175,6 +175,24 @@ public class Groupe : MonoBehaviour {
         
     }
 
+        private void ChangeElementsColor(Color newColor)
+    {
+        foreach(GameObject GO in AllAgents)
+        {
+            Floak floak = GO.GetComponent<Floak>();
+            if (floak != null)
+            {
+                //Debug.Log(gameObject + ": change mat");
+                floak.rend.material.color = newColor;
+            }
+            else
+            {
+                Debug.LogWarning(gameObject + ": no rend found");
+            }
+        }
+        
+    }
+
     // point 1 and 2 defining a line
     public void SeparateGroup(Vector3 point1, Vector3 point2)
     {
@@ -314,6 +332,10 @@ public class Groupe : MonoBehaviour {
 		}
 		return resultList;
 	}
+
+    public void OnClickInstantiate() {
+        g_InitScene = true;
+    }
 
 	
 }
