@@ -20,6 +20,8 @@ public class Unit : MonoBehaviour {
 	public Groupe mGroupe;
 	public Material LearnMaterial;	
 
+	Animator m_Animator;
+
 	// -------- EVENTS
 	// TEACH SKILL
 	public delegate void TryTeachingToGroupEvent ();
@@ -39,6 +41,7 @@ public class Unit : MonoBehaviour {
 		mGenes = new Dictionary<SKILLS, float>();
         randGenes();
 		mGroupe = GetComponentInParent<Groupe> ();
+		m_Animator = GetComponent<Animator> ();
 	}
 
 	void OnEnable() {
@@ -57,7 +60,7 @@ public class Unit : MonoBehaviour {
 	void Update () {
 		State = mState.getWeight ();
 		float start = Time.time * 1000;
-		mState.Execute(mTimeInState, mGenes);
+		mState.Execute(mTimeInState, mGenes, m_Animator);
 		mTimeInState++;
 		mTimeToTeach++;
 		TryToTeachSkills();
@@ -87,6 +90,7 @@ public class Unit : MonoBehaviour {
 			return;
 
 		mState = new DrowningState();
+		State = STATE.DROWNING;
 		// may need to be deleted
 		resetTimeInState();
 	}
