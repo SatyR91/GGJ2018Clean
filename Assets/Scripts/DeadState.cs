@@ -11,7 +11,7 @@ public class DeadState : UnitState {
 
 	~DeadState(){}
 
-	public override void Execute(int time, Dictionary<SKILLS, float> genes)
+	public override void Execute(int time, Dictionary<SKILLS, float> genes, Animator anim)
 	{
 		EventManager.invokeDie ();
 	}

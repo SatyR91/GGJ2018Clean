@@ -17,8 +17,12 @@ public class TeachingObstacle : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider colliderGO) {
+		Debug.Log ("CACA");
 		if (colliderGO.gameObject.CompareTag("pikmin")) {
+			Debug.Log ("CACA*2");
 			Unit collUnit = colliderGO.gameObject.GetComponentInChildren<Unit> ();
+			collUnit.State = STATE.DROWNING;
+			collUnit.mState = new DrowningState ();
 			EventManager.invokeDrowning ();
 		}
 	}

@@ -10,7 +10,7 @@ public enum SKILLS {
 
 public class Unit : MonoBehaviour {
 
-    UnitState mState;
+    public UnitState mState;
 	public STATE State;
     public List<SKILLS> mSkills;
     public Dictionary<SKILLS, float> mGenes;
@@ -19,6 +19,8 @@ public class Unit : MonoBehaviour {
 	public int learnTick = 50;
 	public Groupe mGroupe;
 	public Material LearnMaterial;	
+
+	Animator m_Animator;
 
 	// -------- EVENTS
 	// TEACH SKILL
@@ -39,6 +41,7 @@ public class Unit : MonoBehaviour {
 		mGenes = new Dictionary<SKILLS, float>();
         randGenes();
 		mGroupe = GetComponentInParent<Groupe> ();
+		m_Animator = GetComponent<Animator> ();
 	}
 
 	void OnEnable() {
@@ -57,7 +60,7 @@ public class Unit : MonoBehaviour {
 	void Update () {
 		State = mState.getWeight ();
 		float start = Time.time * 1000;
-		mState.Execute(mTimeInState, mGenes);
+		mState.Execute(mTimeInState, mGenes, m_Animator);
 		mTimeInState++;
 		mTimeToTeach++;
 		TryToTeachSkills();
@@ -87,6 +90,7 @@ public class Unit : MonoBehaviour {
 			return;
 
 		mState = new DrowningState();
+		State = STATE.DROWNING;
 		// may need to be deleted
 		resetTimeInState();
 	}
@@ -113,8 +117,9 @@ public class Unit : MonoBehaviour {
 		float start = Time.time*1000;
 		//Debug.Log("time start " + start.ToString());
 		if (mTimeToTeach > learnTick) {
-			//Debug.Log("Trying to teach : " + mSkills.Count);
+			Debug.Log("Trying to teach : " + mSkills.Count);
 			foreach(SKILLS skill in mSkills) {
+				Debug.Log (mGroupe);
 				List<Unit> ignorants = mGroupe.GetIgnorants(skill);
 				Debug.Log(ignorants.ToString());
 				foreach (Unit unit in ignorants) {
