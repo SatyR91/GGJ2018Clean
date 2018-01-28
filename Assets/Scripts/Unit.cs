@@ -10,6 +10,7 @@ public enum SKILLS {
 
 public class Unit : MonoBehaviour {
 
+	public int timeBeforeDeath;
     public UnitState mState;
 	public STATE State;
     public List<SKILLS> mSkills;
@@ -41,7 +42,8 @@ public class Unit : MonoBehaviour {
 		mGenes = new Dictionary<SKILLS, float>();
         randGenes();
 		mGroupe = GetComponentInParent<Groupe> ();
-		m_Animator = GetComponent<Animator> ();
+		m_Animator = GetComponentInParent<Animator> ();
+		State = STATE.MOVING;
 	}
 
 	void OnEnable() {
@@ -58,14 +60,29 @@ public class Unit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		State = mState.getWeight ();
-		float start = Time.time * 1000;
-		mState.Execute(mTimeInState, mGenes, m_Animator);
-		mTimeInState++;
+		//mState.Execute(mTimeInState, mGenes, m_Animator);
 		mTimeToTeach++;
 		TryToTeachSkills();
-		float end = Time.time * 1000;
 		// Debug.Log ("time spent : " + (end - start));
+		if (State == STATE.DROWNING) {
+			if (!mSkills.Contains(SKILLS.SWIM)){
+				if (mTimeInState > timeBeforeDeath) {
+					State = STATE.DEAD;
+					Die();
+				}
+				else if (UnityEngine.Random.Range(0f,100f) < swimChance) {
+					mSkills.Add(SKILLS.SWIM);
+					mTimeInState = 0;
+					State = STATE.MOVING;
+					m_Animator.SetBool("swimming", true);
+					m_Animator.SetBool("drowning", false);
+					
+				}
+				else {
+					mTimeInState++;
+				}
+			}
+		}
     }
 
 	// returns true if unit have a skill
@@ -132,11 +149,21 @@ public class Unit : MonoBehaviour {
 		//Debug.Log("time spent in Try to teach : " + (end - start).ToString());
 	}
 
+	void Die(){
+		m_Animator.SetBool("dead", true);
+		gameObject.SetActive(false);
+	}
     public  void TryToLearnSkill(SKILLS aSkill) {
 		float chanceToLearn = UnityEngine.Random.Range(0.0f, 100.0f);
 		//Debug.Log("Trying to learn : " + chanceToLearn);
         if (chanceToLearn < learnChance) {
 			mSkills.Add(aSkill);
+			if (aSkill == SKILLS.SWIM){
+				State = STATE.MOVING;
+				m_Animator.SetBool("swimming", true);
+				m_Animator.SetBool("drowning", false);
+				
+			}
 			Debug.Log("SKILLLZZZ");
 			// TODO : Animation
 			GetComponent<Renderer>().material = LearnMaterial;

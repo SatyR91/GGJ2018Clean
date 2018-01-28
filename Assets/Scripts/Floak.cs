@@ -11,6 +11,8 @@ public class Floak : MonoBehaviour {
 	private Unit unit;
 	public STATE state;
 
+	public int chanceToTurnBack = 100;
+
     public Renderer rend;
 
 	void Start () {
@@ -28,6 +30,7 @@ public class Floak : MonoBehaviour {
 	void DrowningPolicy(){
 		// if (Random.Range(0,groupe.g_RulesFrequency) < 1){
 			Debug.Log("DRAWNING");
+			f_MooveVector = Vector3.zero;
 			// ApplyRules();
 		// }
 	}
@@ -147,8 +150,7 @@ public class Floak : MonoBehaviour {
 				f_MooveVector *= -1;
 			}
 			else if(hit.transform.tag == "water"){
-				int prb = 2;
-				if (Random.Range(0,prb) < 1){
+				if (Random.Range(0,chanceToTurnBack) < 1){
 				f_MooveVector *= -1;
 			}
 		}

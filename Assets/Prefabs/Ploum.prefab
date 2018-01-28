@@ -826,6 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1126e0ca000460429aae4f7e51b027d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBeforeDeath: 450
   State: 0
   mSkills: 
   learnTick: 50
@@ -845,6 +846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groupe: {fileID: 0}
+  state: 0
+  chanceToTurnBack: 100
   rend: {fileID: 137436985119320568}
 --- !u!136 &136615593783731692
 CapsuleCollider:

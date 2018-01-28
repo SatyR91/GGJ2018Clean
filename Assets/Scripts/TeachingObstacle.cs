@@ -17,13 +17,25 @@ public class TeachingObstacle : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider colliderGO) {
-		Debug.Log ("CACA");
+		Debug.Log (colliderGO.gameObject.name);
 		if (colliderGO.gameObject.CompareTag("pikmin")) {
 			Debug.Log ("CACA*2");
 			Unit collUnit = colliderGO.gameObject.GetComponentInChildren<Unit> ();
-			collUnit.State = STATE.DROWNING;
-			collUnit.mState = new DrowningState ();
-			EventManager.invokeDrowning ();
+				collUnit.transform.position = collUnit.transform.position - 0.5f * new Vector3(0f,1f,0f);
+			if (!collUnit.mSkills.Contains(SKILLS.SWIM)) {
+				collUnit.State = STATE.DROWNING;
+				collUnit.GetComponentInParent<Animator>().SetBool("drowning", true);
+			}
+		}
+	}
+
+	void OnTriggerExit(Collider other) {
+		if (other.gameObject.CompareTag("pikmin")) {
+			Unit collUnit = other.gameObject.GetComponentInChildren<Unit> ();
+			collUnit.State = STATE.MOVING;
+			collUnit.GetComponentInParent<Animator>().SetBool("drowning", false);
+			collUnit.GetComponentInParent<Animator>().SetBool("swimming", true);
+			collUnit.transform.position = collUnit.transform.position + 0.5f * new Vector3(0f,1f,0f);
 		}
 	}
 }

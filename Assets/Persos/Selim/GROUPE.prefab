@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1428919811679158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.38, y: -14.09, z: -70.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   g_GoalPos: {x: -4.061, y: -14.09, z: -14.623}
   g_CameraPos: {x: 0, y: 1, z: -25}
   g_SpawnLocation: {fileID: 0}
-  g_NumFloakAgents: 10
+  g_NumFloakAgents: 30
   g_ReachGoal: 1
   g_Speed: 1.5
   g_RulesFrequency: 6
@@ -88,6 +88,7 @@ MonoBehaviour:
   selectedMaterial: {fileID: 2100000, guid: ff28883586b6922489c22525a2b2bcbf, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 4137f6f772df3a9439d0a707b58beae4, type: 2}
   mouseOverMaterial: {fileID: 2100000, guid: f8618fd687b17a546aeb96840caf44e9, type: 2}
+  speed: 1
 --- !u!135 &135603865518517878
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -99,4 +100,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3
-  m_Center: {x: 0, y: -28.3, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
