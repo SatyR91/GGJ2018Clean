@@ -44,7 +44,7 @@ public class Floak : MonoBehaviour {
 			DrowningPolicy();
 		f_Child.rotation = Quaternion.LookRotation(f_MooveVector);
 		this.transform.Translate(f_MooveVector*Time.deltaTime*groupe.g_Speed);
-		ComputeRepulsion();
+		// ComputeRepulsion();
 		}
 	}
 

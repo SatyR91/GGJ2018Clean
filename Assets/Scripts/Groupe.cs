@@ -66,7 +66,7 @@ public class Groupe : MonoBehaviour {
 	void Update () {
 		if (g_InitScene == true){
 			g_InitScene = false;
-			g_NumFloakAgents = 10;
+			// g_NumFloakAgents = 10;
 			AllAgents = new GameObject[g_NumFloakAgents];
 			SetupScene();
 		}

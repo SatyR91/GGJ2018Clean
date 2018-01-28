@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour {
         GameObject groupeObj = Instantiate(groupePrefab,Vector3.zero,Quaternion.identity);
         Groupe groupe = groupeObj.GetComponent<Groupe>();
         groupe.AllAgents = new GameObject[groupe.g_NumFloakAgents];
+
+
+
+
+        groupePrefab.GetComponent<Groupe>().OnClickInstantiate();
         
         
         // groupe.SetupScene();

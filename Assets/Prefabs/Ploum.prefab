@@ -920,7 +920,7 @@ MonoBehaviour:
   timeBeforeDeath: 450
   State: 0
   mSkills: 
-  learnTick: 500
+  learnTick: 50
   mGroupe: {fileID: 0}
   LearnMaterial: {fileID: 2100000, guid: ff28883586b6922489c22525a2b2bcbf, type: 2}
   lightBulb: {fileID: 1915462457818298}
