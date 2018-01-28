@@ -13,9 +13,28 @@
 *.userprefs
 *.pidb
 *.booproj
+*.meta
 
 # Unity3D generated meta files
 *.pidb.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+
+Assets/Assets/LowPolyWater_Pack/Plane Meshes/Ocean50x50W750H750\.asset
+
+Assets/FINAL MAP/LD01\.unity
+
+Assets/GFX/Unit/PloumPloum\.controller
+
+Assets/LD01\.unity
+
+Assets/Persos/Selim/GROUPE\.prefab
+
+Assets/Prefabs/GameManager\.prefab
+
+Assets/Prefabs/Groupe\.prefab
+
+Assets/Prefabs/SpawnLocation\.prefab
+
+ProjectSettings/TagManager\.asset

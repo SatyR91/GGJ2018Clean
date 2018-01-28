@@ -11,7 +11,7 @@ public class MovingState : UnitState
 
     ~MovingState(){}
 
-	public override void Execute(int time, Dictionary<SKILLS, float> genes)
+	public override void Execute(int time, Dictionary<SKILLS, float> genes, Animator anim)
     {
 
     }

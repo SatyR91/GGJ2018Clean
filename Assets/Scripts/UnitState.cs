@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public enum STATE {
 	MOVING = 1,
@@ -14,5 +15,5 @@ public abstract class UnitState {
 		return m_weight;
 	}
 
-	public abstract void Execute(int time, Dictionary<SKILLS, float> genes);
+	public abstract void Execute(int time, Dictionary<SKILLS, float> genes, Animator anim);
 }
