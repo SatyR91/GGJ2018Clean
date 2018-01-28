@@ -156,5 +156,6 @@ public class Floak : MonoBehaviour {
 			Debug.DrawRay(transform.position, f_MooveVector*2, Color.green);
 		Debug.DrawRay(transform.position, f_Child.forward*2, Color.red);
 	}
+	}
 
 }
