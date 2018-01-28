@@ -26,6 +26,7 @@ public class InputControler : MonoBehaviour {
     private float _lastClickTime;
     private bool _doubleClicking;
 
+
     GameObject[] objectsToCheck;
     bool isTracingLine = false;
 
@@ -35,7 +36,7 @@ public class InputControler : MonoBehaviour {
     Vector3 _firstPointOnScreen;
     Vector3 _secondPointOnScreen;
 
-    float _rayMaxDistance = 1000f;
+    float _rayMaxDistance = 3000f;
 
 
     private void Start()
@@ -128,7 +129,8 @@ public class InputControler : MonoBehaviour {
                     GameObject touchedObj = GetObjTouched();
                     if (touchedObj != null) {
                         Debug.Log("Objet non null");
-                        if (touchedObj.tag == "group") {
+                        Debug.Log("touched object: "+ touchedObj.name);
+                        if (touchedObj.tag == "group_2") {
                             Debug.Log("Objet has tag group");
 
                             if (!touchedObj.GetComponent<Groupe>().isSelected) {
@@ -155,7 +157,7 @@ public class InputControler : MonoBehaviour {
         {
 
             GameObject objectUnderMouse = GetObjTouched();
-            if(objectUnderMouse != null && objectUnderMouse.tag == "group" && Groupe.selectedObject != null){
+            if(objectUnderMouse != null && objectUnderMouse.tag == "group_2" && Groupe.selectedObject != null){
                 // we hit a group, we try to merge the two groups
 
                 Groupe clickedGroup = objectUnderMouse.GetComponent<Groupe>();
@@ -270,11 +272,15 @@ public class InputControler : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+
         // if ray touched
-        if (Physics.Raycast(ray, out hit, _rayMaxDistance))
+        if (Physics.Raycast(ray, out hit, _rayMaxDistance)) // add layer
         {
             hitGO = hit.collider.gameObject;
             Debug.Log(gameObject + ": check for group; ray successfully hit");
+
+            // var newGo = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            // newGo.transform.position = hit.point;
         }
         else
             Debug.Log(gameObject + ": check for group; ray hit nothing");
