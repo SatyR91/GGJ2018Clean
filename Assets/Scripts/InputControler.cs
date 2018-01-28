@@ -130,7 +130,7 @@ public class InputControler : MonoBehaviour {
                     if (touchedObj != null) {
                         Debug.Log("Objet non null");
                         Debug.Log("touched object: "+ touchedObj.name);
-                        if (touchedObj.tag == "group_2") {
+                        if (touchedObj.tag == "group") {
                             Debug.Log("Objet has tag group");
 
                             if (!touchedObj.GetComponent<Groupe>().isSelected) {
@@ -157,7 +157,7 @@ public class InputControler : MonoBehaviour {
         {
 
             GameObject objectUnderMouse = GetObjTouched();
-            if(objectUnderMouse != null && objectUnderMouse.tag == "group_2" && Groupe.selectedObject != null){
+            if(objectUnderMouse != null && objectUnderMouse.tag == "group" && Groupe.selectedObject != null){
                 // we hit a group, we try to merge the two groups
 
                 Groupe clickedGroup = objectUnderMouse.GetComponent<Groupe>();
@@ -274,7 +274,7 @@ public class InputControler : MonoBehaviour {
 
 
         // if ray touched
-        if (Physics.Raycast(ray, out hit, _rayMaxDistance)) // add layer
+        if (Physics.Raycast(ray, out hit, _rayMaxDistance, groupLayerMask.value)) // add layer
         {
             hitGO = hit.collider.gameObject;
             Debug.Log(gameObject + ": check for group; ray successfully hit");
