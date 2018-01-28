@@ -8,21 +8,37 @@ public class Floak : MonoBehaviour {
 	private Vector3 f_MooveVector = new Vector3(1,0,0);
 	private Transform f_Child;
 	private float f_angle = 0;
-
+	private Unit unit;
+	public STATE state;
 
     public Renderer rend;
 
 	void Start () {
 		f_Child = transform.GetChild(0);
+		unit =  GetComponentInChildren<Unit>();
+		state = unit.State;
 	}
 	
-
-
-	void Update () {
-		if (groupe != null && groupe.AllAgents.Length != 0){
+	void MoovingPolicy(){
 		if (Random.Range(0,groupe.g_RulesFrequency) < 1){
 			ApplyRules();
 		}
+	}
+	
+	void DrowningPolicy(){
+		// if (Random.Range(0,groupe.g_RulesFrequency) < 1){
+			Debug.Log("DRAWNING");
+			// ApplyRules();
+		// }
+	}
+
+	void Update () {
+		state = unit.State;
+		if (groupe != null && groupe.AllAgents.Length != 0){
+		if (state == STATE.MOVING) 
+			MoovingPolicy();
+		if (state == STATE.DROWNING)
+			DrowningPolicy();
 		f_Child.rotation = Quaternion.LookRotation(f_MooveVector);
 		this.transform.Translate(f_MooveVector*Time.deltaTime*groupe.g_Speed);
 		ComputeRepulsion();
@@ -126,9 +142,15 @@ public class Floak : MonoBehaviour {
 		Ray ray = new Ray(transform.position, f_MooveVector);
 		RaycastHit hit;
 		if (Physics.Raycast(ray,out hit, 2)){
-			if (hit.transform.tag == "Repulsor")
+			if (hit.transform.tag == "repulsor"){
 				Debug.DrawRay(transform.position, f_MooveVector*10, Color.yellow);
 				f_MooveVector *= -1;
+			}
+			else if(hit.transform.tag == "water"){
+				int prb = 2;
+				if (Random.Range(0,prb) < 1){
+				f_MooveVector *= -1;
+			}
 		}
 		else
 			Debug.DrawRay(transform.position, f_MooveVector*2, Color.green);
