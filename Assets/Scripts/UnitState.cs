@@ -6,6 +6,7 @@ public enum STATE {
 	MOVING = 1,
 	LEARNING = 2,
 	DROWNING = 3,
+	SWIMMING = 4,
 	DEAD = 10
 }
 

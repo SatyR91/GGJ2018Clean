@@ -159,9 +159,15 @@ public class Unit : MonoBehaviour {
         if (chanceToLearn < learnChance) {
 			mSkills.Add(aSkill);
 			if (aSkill == SKILLS.SWIM){
-				State = STATE.MOVING;
-				m_Animator.SetBool("swimming", true);
-				m_Animator.SetBool("drowning", false);
+				if (State == STATE.DROWNING){
+					m_Animator.SetBool("swimming", true);
+					m_Animator.SetBool("drowning", false);
+					State = STATE.SWIMMING;
+				}
+				else {
+					m_Animator.SetBool("moving", true);
+					State = STATE.MOVING;
+				}
 				
 			}
 			Debug.Log("SKILLLZZZ");

@@ -806,7 +806,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1925375164009324}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 27ce5e56e7fe2d74ab0616515e4f5520, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 107fbb36e26c2d54f8e4c842d4ddbbe8, type: 3}
   m_Controller: {fileID: 9100000, guid: 4156c3453a473bb449b26afb62856a1e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -876,7 +876,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3db900a83aef8214899ec765b9452610, type: 2}
+  - {fileID: 2100000, guid: 7a768b20b5513d8489e478f450ce5d12, type: 2}
   - {fileID: 2100000, guid: 5277e252836a0f3499978d8e9b09165c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

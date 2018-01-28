@@ -26,6 +26,9 @@ public class TeachingObstacle : MonoBehaviour {
 				collUnit.State = STATE.DROWNING;
 				collUnit.GetComponentInParent<Animator>().SetBool("drowning", true);
 			}
+			else {
+				collUnit.GetComponentInParent<Animator>().SetBool("swimming", true);
+			}
 		}
 	}
 
@@ -34,7 +37,8 @@ public class TeachingObstacle : MonoBehaviour {
 			Unit collUnit = other.gameObject.GetComponentInChildren<Unit> ();
 			collUnit.State = STATE.MOVING;
 			collUnit.GetComponentInParent<Animator>().SetBool("drowning", false);
-			collUnit.GetComponentInParent<Animator>().SetBool("swimming", true);
+			collUnit.GetComponentInParent<Animator>().SetBool("swimming", false);
+			collUnit.GetComponentInParent<Animator>().SetBool("moving", true);
 			collUnit.transform.position = collUnit.transform.position + 0.5f * new Vector3(0f,1f,0f);
 		}
 	}
