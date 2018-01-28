@@ -142,7 +142,7 @@ public class Floak : MonoBehaviour {
 		Ray ray = new Ray(transform.position, f_MooveVector);
 		RaycastHit hit;
 		if (Physics.Raycast(ray,out hit, 2)){
-			if (hit.transform.tag == "repulsor"){
+			if (hit.transform.tag == "wall"){
 				Debug.DrawRay(transform.position, f_MooveVector*10, Color.yellow);
 				f_MooveVector *= -1;
 			}
